@@ -1,0 +1,33 @@
+<mat-progress-bar mode="indeterminate" *ngIf="!getApiReqStatus()"></mat-progress-bar>
+<div *ngIf="getApiReqStatus()&&usersData.length==0">
+    <h1 class="text-center text-muted">No Users Added Yet!</h1>
+</div>
+<div class="card shadow mb-4" *ngIf="getApiReqStatus()&&usersData.length>0">
+    <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">Users Data</h6>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Age</th>
+                        <th>Phone Number</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <tr *ngFor="let user of usersData">
+                        <td *ngIf="user.email!=null">{{user.name}}</td>
+                        <td *ngIf="user.email!=null">{{user.email}}</td>
+                        <td *ngIf="user.email!=null">{{user.age}}</td>
+                        <td *ngIf="user.email!=null">{{user.phoneNumber}}</td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

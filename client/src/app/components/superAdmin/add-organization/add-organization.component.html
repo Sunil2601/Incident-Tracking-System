@@ -1,0 +1,24 @@
+<div class="d-flex align-items-center justifuy-content-center">
+    <div class="row row-cols-lg-2 row-cols-md-2 row-cols-sm-1 p-5  body  ">
+        <div class="col">
+            <img src="../../../../assets/images/add-org-img.svg"  class="img-fluid" alt="">
+        </div>
+        <div class="col formBody">
+            <form class="mx-auto mt-5" [formGroup]="addOrganizationForm">
+                <h1 class="mb-5 text-dark text-center">Add Organization</h1>
+
+                <mat-form-field class="d-block mb-2">
+                    <mat-label>Name</mat-label>
+                    <input type="text" matInput formControlName="name">
+                    <mat-error class="text-dark" *ngIf="addOrganizationForm.get('name')?.hasError('required')">Please
+                        enter name</mat-error>
+                </mat-form-field>
+                <mat-form-field class="d-block mb-2">
+                    <mat-label>Description</mat-label>
+                    <input matInput formControlName="description">
+                </mat-form-field>
+                <button class="btn btn-dark w-100 submitButton" (click)="onFormSubmit()">submit</button>
+            </form>
+        </div>
+    </div>
+</div>

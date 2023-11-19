@@ -1,0 +1,67 @@
+<!-- <mat-progress-bar mode="indeterminate" *ngIf="!getApiReqStatus()"></mat-progress-bar> -->
+
+<body id="page-top">
+    <div id="wrapper">
+        <div id="content-wrapper" class="d-flex flex-column">
+            <div id="content">
+                <div class="container-fluid">
+                    <div class="row mt-3">
+                        <h2 class="h3 mb-0 text-gray-800">Dashboard</h2>
+                    </div>
+                    <div class="row mt-2 ">
+                        <div class="col-xl-4 col-md-6 mb-4" *ngFor="let i of [0,1,2]">
+                            <div [classList]="cardStyles[i]">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                                {{statsData[i]}}</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{values[i]}}</div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div> 
+                            <div class="card shadow mb-4" *ngIf="getApiReqStatus()">
+                                <div class="card-header py-3">
+                                    <h6 class="m-0 font-weight-bold text-primary">Incidents Data</h6>
+                                </div>
+                                <div class="card-body" style="background-color: #E0E1DD; min-height: 100vh;">
+                                    <h6 class="m-0 font-weight-bold text-success" *ngIf="incidents.length==0">No Incidents Yet</h6>
+
+                                    <table class="table w-100 table-bordered mx-auto striped" *ngIf="incidents.length>0">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">#</th>
+                                                <th scope="col">Incident Id</th>
+                                                <th scope="col">Status</th>
+                                                <th scope="col">Date</th>
+                                                <th scope="col">Description </th>
+
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr *ngFor="let incident of incidents;let i=index">
+                                                <td>{{i+1}}</td>
+                                                <td>{{incident.id}}</td>
+                                                <td>{{incident.status}}</td>
+                                                <td>{{incident.date}}</td>
+                                                <td>{{incident.description}}</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>

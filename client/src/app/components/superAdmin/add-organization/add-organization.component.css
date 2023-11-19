@@ -1,0 +1,15 @@
+.formBody{ 
+    border-radius: 5px;
+}
+.body{
+    min-height: 100vh;
+    background-color: #E0E1DD;
+}
+img{
+    height: 100%;
+    object-fit: contain;
+}
+form{
+    padding: 3em;
+    background-color: #778DA9;
+}

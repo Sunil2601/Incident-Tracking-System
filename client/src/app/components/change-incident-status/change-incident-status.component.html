@@ -1,0 +1,21 @@
+<mat-progress-bar mode="indeterminate" *ngIf="!getApiReqStatus()"></mat-progress-bar>
+<div class="body"  *ngIf="getApiReqStatus()">
+    <div class="formContainer shadow">
+        <h1 class="mb-5 text-light">Change Incident Status</h1>
+        <form class="mx-auto" [formGroup]="updateIncidentForm">
+            <mat-form-field class="d-block mb-2">
+                <mat-label>Incident Id</mat-label>
+                <input type="text" matInput formControlName="id" [disabled]="true">
+            </mat-form-field>
+            <mat-form-field class="d-block mb-2">
+                <mat-label>Status</mat-label>
+                <mat-select formControlName="status"  >
+                    <mat-option *ngFor="let i of status" [value]="i[1]">{{i[0]}}</mat-option>
+                </mat-select>
+                <mat-error class="text-light" *ngIf="updateIncidentForm.get('status')?.hasError('required')">Please select a
+                    status</mat-error>
+            </mat-form-field>
+            <button class="btn btn-secondary w-100 submitButton" (click)="onChangeIncidentStatus()">submit</button>
+        </form>
+    </div>
+</div>

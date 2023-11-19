@@ -1,0 +1,50 @@
+<div>
+    <mat-spinner class="spinner mx-auto" *ngIf="!getApiRequestStatus()"></mat-spinner>
+    <div class="body pt-3" *ngIf="getApiRequestStatus()">
+        <div class="row row-cols-lg-2 row-cols-md-2 row-cols-sm-1 main">
+            <div class="col imgcol ">
+                <img src="../../../../assets/images/add-org-admin-img.svg" alt="">
+            </div>
+            <div class="col mt-5">
+                <form class="mx-auto " [formGroup]="addOrgnizationAdminForm">
+                    <h4 class="mb-5 text-dark text-center">Add Organization Admin</h4>
+                    <mat-form-field class="w-100 mb-2">
+                        <mat-label>Organization Name</mat-label>
+                        <input type="text" placeholder="Enter Organization Name" aria-label="Number" matInput
+                            formControlName="organizationName" [matAutocomplete]="auto">
+                        <mat-autocomplete #auto="matAutocomplete">
+                            <mat-option *ngFor="let option of filteredOptions | async; track option"
+                                [value]="option">{{option}}</mat-option>
+                        </mat-autocomplete>
+                        <mat-error class="text-dark"
+                            *ngIf="addOrgnizationAdminForm.get('organizationName')?.hasError('required')">Please
+                            enter organization name</mat-error>
+                    </mat-form-field>
+                    <mat-form-field class="d-block mb-2">
+                        <mat-label>Name</mat-label>
+                        <input type="text" matInput formControlName="name">
+                        <mat-error class="text-dark"
+                            *ngIf="addOrgnizationAdminForm.get('name')?.hasError('required')">Please
+                            enter admin name</mat-error>
+                    </mat-form-field>
+                    <mat-form-field class="d-block mb-2">
+                        <mat-label>Email</mat-label>
+                        <input matInput formControlName="email">
+                        <mat-error class="text-dark"
+                            *ngIf="addOrgnizationAdminForm.get('email')?.hasError('required')">Please
+                            enter email</mat-error>
+                    </mat-form-field>
+                    <mat-form-field class="d-block mb-2">
+                        <mat-label>Password</mat-label>
+                        <input matInput formControlName="password">
+                        <mat-error class="text-dark"
+                            *ngIf="addOrgnizationAdminForm.get('password')?.hasError('required')">Please
+                            enter password</mat-error>
+                    </mat-form-field>
+                    <button class="btn btn-dark w-100 submitButton" (click)="onFormSubmit()">submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</div>

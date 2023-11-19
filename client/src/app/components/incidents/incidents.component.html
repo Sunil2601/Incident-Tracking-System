@@ -1,0 +1,44 @@
+<div>
+    <mat-spinner class="spinner mx-auto" *ngIf="!getApiRequestStatus()"></mat-spinner>
+    <div class="card shadow mb-4" *ngIf="getApiRequestStatus()">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Incidents Data</h6>
+        </div>
+        <div class="card-body" style="background-color: #E0E1DD; min-height: 100vh;">
+
+            <h3 class="text-muted"  *ngIf="incidentsData.length==0"> No Incidents Yet!</h3>
+            <table class="table w-100 table-bordered mx-auto striped"  *ngIf="incidentsData.length>0">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Incident Id</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">Date</th>
+                        <th scope="col">Description </th>
+                        <th scope="col" *ngIf="!isShowable()">OrgId</th>
+                        <th scope="col" *ngIf="isShowable()">View </th>
+                        <th scope="col" *ngIf="isShowable()">Edit </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let incident of incidentsData;let i=index">
+                        <td>{{i+1}}</td>
+                        <td>{{incident.id}}</td>
+                        <td>{{incident.status}}</td>
+                        <td>{{incident.date}}</td>
+                        <td>{{incident.description}}</td>
+                        <td *ngIf="!isShowable()">{{incident.orgId}}</td>
+                        <td *ngIf="isShowable()">
+                            <button class="btn" style="background-color: #a8dadc; color:white;"
+                                (click)="onView(i)">View</button>
+                        </td>
+                        <td *ngIf="isShowable()">
+                            <button class="btn" style="background-color: #415A77;color:white;"
+                                (click)="onEdit(i)">Change Status</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

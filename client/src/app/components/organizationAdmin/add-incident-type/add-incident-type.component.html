@@ -1,0 +1,27 @@
+<div class="body">
+    <div class="formBody bg-light shadow mx-auto">
+        <h3 class="text-center">Add New Incident Type</h3>
+        <form class="pt-3">
+            <mat-form-field class="example-chip-list d-block">
+                <mat-label>Add Incident Types</mat-label>
+                <mat-chip-grid #chipGrid aria-label="Fruit selection" class="d-flex">
+                    <mat-chip-row *ngFor="let incident of incidentTypes;track incident" (removed)="remove(incident)"
+                        class="d-flex">
+                        {{incident}}
+                        <button matChipRemove [attr.aria-label]="'remove ' + incident">
+                            <mat-icon>cancel</mat-icon>
+                        </button>
+                    </mat-chip-row>
+                </mat-chip-grid>
+                <input placeholder="New Incident Type..." #fruitInput [formControl]="incidentTypesFormControl"
+                    [matChipInputFor]="chipGrid" [matAutocomplete]="auto"
+                    [matChipInputSeparatorKeyCodes]="separatorKeysCodes" (matChipInputTokenEnd)="add($event)" />
+                <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
+                    <mat-option *ngFor="let incient of filteredIncidentTypes |async;track incient"
+                        [value]="incient">{{incient}}</mat-option>
+                </mat-autocomplete>
+            </mat-form-field>
+            <button class="btn submitButton w-75 d-block mx-auto" (click)="onSubmit()">Submit</button>
+        </form>
+    </div>
+</div>

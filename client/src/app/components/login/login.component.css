@@ -1,0 +1,27 @@
+img{
+    max-height: 75vh;
+    object-fit: contain;
+    display: block;
+    margin: auto;
+}
+.body{
+    background-color: #E0E1DD;
+}
+.formBody{
+    background-color: #1B263B;
+    padding: 4em;
+   border-radius: 5px;
+}
+h1{
+    color:#E0E1DD;
+    text-align: center;   
+   
+}
+
+.submitButton{
+    background-color: #E0E1DD;
+    color:black;
+}
+.submitButton:hover{
+    border: 3px solid #a7a7a7 ;
+}

@@ -1,0 +1,92 @@
+<!--Main Navigation-->
+<header>
+    <!-- Sidebar -->
+    <nav id="sidebarMenu" class="collapse d-lg-block sidebar collapse">
+        <div class="position-sticky">
+            <div class="list-group list-group-flush mx-3 mt-4 sidebarBody">
+                <a routerLink="organizationAdminDashboard" class="list-group-item list-group-item-action py-2 ripple"
+                    aria-current="true">
+                    <i class="fas fa-tachometer-alt fa-fw me-3"></i><span>Dashboard</span>
+                </a>
+                <a routerLink="addSubordinate" class="list-group-item list-group-item-action py-2 ripple">
+                    <i class="fa-regular fa-square-plus fa-fw me-3"></i><span>Add SubOrdinate</span>
+                </a>
+                <a routerLink="addIncidentType" class="list-group-item list-group-item-action py-2 ripple">
+                    <i class="fa-regular fa-square-plus fa-fw me-3"></i><span>Add Incident Type</span>
+                </a>
+
+                <a routerLink="verifyIncident" class="list-group-item list-group-item-action py-2 ripple"><i
+                        class="fa-solid fa-plus fa-fw me-3"></i><span>Verify Incidents</span></a>
+                <a routerLink="viewOrganizationSummary" (click)="f()" class="list-group-item list-group-item-action py-2 ripple">
+                    <i class="fa-solid fa-circle-info fa-fw me-3"></i>
+                    <span>View Organization</span></a>
+                <a routerLink="Analysis" class="list-group-item list-group-item-action py-2 ripple">
+                    <i class="fas fa-chart-pie fa-fw me-3"></i><span>Analysis</span>
+                </a>
+                <a routerLink="subordinates" class="list-group-item list-group-item-action py-2 ripple"><i
+                        class="fa-solid fa-building fa-fw me-3"></i><span>SubOrdinates</span></a>
+                <a routerLink="users" class="list-group-item list-group-item-action py-2 ripple"><i
+                        class="fas fa-calendar fa-fw me-3"></i><span>Users</span></a>
+
+                <a routerLink="#" class="list-group-item list-group-item-action py-2 ripple"><i
+                        class="fas fa-money-bill fa-fw me-3"></i><span>Others</span></a>
+            </div>
+        </div>
+    </nav>
+    <!-- Sidebar -->
+
+    <div>
+        <!-- Navbar -->
+        <nav id="main-navbar" class="navbar navbar-expand-lg fixed-top">
+            <!-- Container wrapper -->
+            <div class="container-fluid">
+                <!-- Toggle button -->
+                <button class="navbar-toggler me-2" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <i class="fas fa-bars"></i>
+                </button>
+
+                <!-- Brand -->
+                <a class="navbar-brand" routerLink="#" class="d-flex" style="text-decoration: none;">
+                    <img src="../../../assets/images/logo.png" height="35" alt="" loading="lazy" />
+                    <h3 class=" ms-2" style="color: #E0E1DD;text-decoration: none;">ITS</h3>
+                </a>
+
+                <!-- Right links -->
+                <ul class="navbar-nav ms-auto d-flex flex-row">
+                    <!-- Notification dropdown -->
+                    <li class="nav-item">
+                        <a class="nav-link me-3 me-lg-0hidden-arrow" routerLink="notifications">
+                            <i class="fas fa-bell" style="color: #E0E1DD;"></i>
+                            <span class="badge rounded-pill badge-notification bg-danger"
+                                *ngIf="notificationsCount>0">{{notificationsCount}}</span>
+                        </a>
+
+                    </li>
+                    <!-- Avatar -->
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle hidden-arrow d-flex align-items-center" routerLink="#"
+                            style="color:#E0E1DD" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            <img src="https://mdbootstrap.com/img/Photos/Avatars/img (31).jpg" class="rounded-circle"
+                                height="22" alt="" loading="lazy" />
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
+                            <li><a class="dropdown-item" routerLink="profile">My profile</a></li>
+                            <li><a class="dropdown-item" routerLink="#">Settings</a></li>
+                            <li><a class="dropdown-item" routerLink="" (click)="logout()">Logout</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <!-- Container wrapper -->
+        </nav>
+        <!-- Navbar -->
+        <main style="padding-top: 55px;">
+            <router-outlet></router-outlet>
+        </main>
+    </div>
+
+</header>

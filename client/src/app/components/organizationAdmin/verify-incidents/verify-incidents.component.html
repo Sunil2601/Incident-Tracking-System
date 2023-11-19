@@ -1,0 +1,35 @@
+<mat-progress-bar mode="indeterminate" *ngIf="!getApiReqStatus()"></mat-progress-bar>
+
+<div class="card shadow mb-4" *ngIf="getApiReqStatus()">
+    <h1 class="text-muted text-center mt-5" *ngIf="incidentsData.length==0">No Incidents To Verify</h1>
+    <div class="card-header py-3" *ngIf="incidentsData.length>0">
+        <h6 class="m-0 font-weight-bold text-primary">Users Data</h6>
+    </div>
+    <div class="card-body" *ngIf="incidentsData.length>0">
+        <div class="table-responsive">
+            
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0" >
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>date</th>
+                        <th>Description</th>
+                        <th>View</th>
+                        <th>Verify</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let incident of incidentsData;let i=index;">
+                        <td>{{incident.id}}</td>
+                        <td>{{incident.date}}</td>
+                        <td>{{incident.description}}</td>
+                        <td>
+                            <button class="btn btn-secondary"  (click)="onView(i)">View</button>
+                        </td>
+                        <td> <button class="btn btn-warning" (click)="onVerify(i)">Verify</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

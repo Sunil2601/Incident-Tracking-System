@@ -1,0 +1,50 @@
+<mat-progress-bar mode="indeterminate" *ngIf="!getApiReqStatusFromService()"></mat-progress-bar>
+
+<div class="body " *ngIf="getApiReqStatusFromService()">
+    <h3 class=" text-dark text-center mt-5">Add User</h3>
+    <div class="formContainer2 shadow mt-5 mb-5">
+        <form [formGroup]="csvForm">
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Upload CSV File</label>
+                <input type="file" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                   formControlName="csvFile" (change)="onFileUpload($event)">
+            </div>
+
+        </form>
+    </div>
+    <p class="text-center"><i>------------Or--------------</i></p>
+    <div class="formContainer mt-5 shadow d-block">
+        
+        <form class="mx-auto" [formGroup]="addUserForm">
+            <mat-form-field class="d-block mb-2">
+                <mat-label>Name</mat-label>
+                <input type="text" matInput formControlName="name">
+                <mat-error class="text-dark" *ngIf="addUserForm.get('name')?.hasError('required')">Please enter
+                    name</mat-error>
+            </mat-form-field>
+            <mat-form-field class="d-block mb-2">
+                <mat-label>Email</mat-label>
+                <input type="text" matInput formControlName="email">
+                <mat-error class="text-dark"
+                    *ngIf="addUserForm.get('email')?.hasError('required')||addUserForm.get('email')?.hasError('email')">Please
+                    enter valid email</mat-error>
+            </mat-form-field>
+            <mat-form-field class="d-block mb-2">
+                <mat-label>Phone Number</mat-label>
+                <input matInput type="text" formControlName="phoneNumber">
+                <mat-error class="text-dark" *ngIf="addUserForm.get('phoneNumber')?.hasError('required')">Please
+                    enter
+                    phone number</mat-error>
+            </mat-form-field>
+            <mat-form-field class="d-block mb-2">
+                <mat-label>Age</mat-label>
+                <input matInput type="text" formControlName="age">
+                <mat-error class="text-dark" *ngIf="addUserForm.get('age')?.hasError('required')">Please enter
+                    age</mat-error>
+            </mat-form-field>
+            <button class="btn btn-dark w-100 submitButton" (click)="onFormSubmit()">submit</button>
+        </form>
+    </div>
+
+
+</div>

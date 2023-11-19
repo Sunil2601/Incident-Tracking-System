@@ -1,0 +1,43 @@
+<mat-spinner class="d-block mx-auto mt-5" *ngIf="!getApiReqStatus()"></mat-spinner>
+<div class="body" *ngIf="getApiReqStatus()">
+    <div class="body p-5">
+        <div class="row row-cols-lg-2 row-cols-sm-1 row-cols-md-1 p-5 shadow">
+            <div class="col">
+                <img src="../../../assets/images/login-page-img.svg" alt="">
+            </div>
+            <div class="col formBody">
+                <h1 class="mb-5 text-light">Login</h1>
+                <form class="mx-auto" [formGroup]="loginForm">
+                    <mat-form-field class="d-block mb-2">
+                        <mat-label>Email</mat-label>
+                        <input type="email" matInput formControlName="email">
+                        <mat-error class="text-light"
+                            *ngIf="loginForm.get('email')?.hasError('required')||loginForm.get('email')?.hasError('email')">Please
+                            enter email address</mat-error>
+                    </mat-form-field>
+                    <mat-form-field class="d-block mb-2">
+                        <mat-label>Password</mat-label>
+                        <input matInput formControlName="password">
+                        <mat-error class="text-light" *ngIf="loginForm.get('password')?.hasError('required')">Please
+                            enter
+                            password</mat-error>
+
+                    </mat-form-field>
+                    <mat-form-field class="d-block mb-2">
+                        <mat-label>Role</mat-label>
+                        <mat-select formControlName="role">
+                            <mat-option value="superAdmin">Super Admin</mat-option>
+                            <mat-option value="organizationAdmin">Organization Admin</mat-option>
+                            <mat-option value="organizationSubOrdinate">Organization Sub-Ordinate</mat-option>
+                        </mat-select>
+                        <mat-error class="text-light" *ngIf="loginForm.get('role')?.hasError('required')">Please select
+                            a
+                            role</mat-error>
+
+                    </mat-form-field>
+                    <button class="btn  w-100 submitButton" (click)="onLoginFromSubmit()">submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

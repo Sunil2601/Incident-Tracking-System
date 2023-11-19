@@ -1,0 +1,33 @@
+.formBody {
+    width: 50%;
+    height: 50vh;
+    border-radius: 5px;
+    @media (max-width: 768px) {
+        width: 90%;
+        /* Change width to 75% for smaller screens */
+    }
+
+}
+
+.body {
+    background-color: #E0E1DD;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+}
+
+.submitButton{
+    background-color: #1B263B;
+    color: white;
+    height: 3em;
+}
+form{
+    padding: 2em;
+}
+h3{
+    background-color: #1B263B;
+    padding: 1em;
+    color:white;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+}

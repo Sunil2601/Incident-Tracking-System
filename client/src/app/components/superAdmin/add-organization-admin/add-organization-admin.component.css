@@ -1,0 +1,17 @@
+img{
+    object-fit: contain;
+    width: 100%;
+}
+.body{
+    padding: 3em;
+    background-color: #778DA9;
+}
+form{
+    background-color: #E0E1DD;
+    padding: 1.5em;
+    border-radius: 5px;
+}
+.imgcol{
+    display: flex;
+    align-items: center;
+}

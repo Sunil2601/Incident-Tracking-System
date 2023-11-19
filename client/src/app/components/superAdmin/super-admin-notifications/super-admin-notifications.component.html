@@ -1,0 +1,29 @@
+<mat-spinner class=" d-block mx-auto" *ngIf="!getAPiReqStatus()"></mat-spinner>
+
+<div *ngIf="getAPiReqStatus()">
+    <div *ngIf="notifications.length==0">
+        <h1 class="text-muted text-center">No Notifications</h1>
+    </div>
+    <div>
+        <h3  *ngIf="notifications.length>0" class="mb-5 ms-2 mt-2 text-muted">Notifications</h3>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Incident Id</th>
+                    <th scope="col">Organization Id</th>
+                    <th scope="col"> Reported Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let notification of notifications;let i=index">
+                    <th scope="row">{{i+1}}</th>
+                    <td>{{notification.id}}</td>
+                    <td>{{notification.orgId}}</td>
+                    <td>{{notification.date}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

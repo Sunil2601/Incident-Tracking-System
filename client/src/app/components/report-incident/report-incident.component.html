@@ -1,0 +1,60 @@
+<div>
+    <mat-spinner class="spinner mx-auto" *ngIf="!getApiRequestStatus()"></mat-spinner>
+    <div class="body" *ngIf="getApiRequestStatus()">
+        <div class="formContainer shadow">
+            <h4 class="mb-5 text-light text-center">Report Incident</h4>
+            <form class="mx-auto" [formGroup]="reportIncidentForm">
+                <div class="row row-cols-lg-2 row-cols-sm-1 row-cols-md-2 row-cols-xs-1 ">
+                    <mat-form-field class="d-block mb-2">
+                        <mat-label>User Email</mat-label>
+                        <input type="email" placeholder="Enter User Email" aria-label="Number" matInput
+                            formControlName="userEmail" [matAutocomplete]="auto">
+                        <mat-autocomplete #auto="matAutocomplete">
+                            <mat-option *ngFor="let option of filteredOptions | async; track option"
+                                [value]="option">{{option}}</mat-option>
+                        </mat-autocomplete>
+                        <mat-error class="text-dark"
+                            *ngIf="reportIncidentForm.get('email')?.hasError('required')">Please
+                            enter user email</mat-error>
+                    </mat-form-field>
+                    <mat-form-field>
+                        <mat-label>Date</mat-label>
+                        <input matInput [matDatepicker]="picker" formControlName="date">
+                        <mat-hint>MM/DD/YYYY</mat-hint>
+                        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker #picker></mat-datepicker>
+                        <mat-error class="text-dark" *ngIf="reportIncidentForm.get('date')?.hasError('required')">Please
+                            enter date</mat-error>
+                      </mat-form-field>
+                </div>
+                <div class="row row-cols-lg-2 row-cols-sm-1 row-cols-md-2 row-cols-xs-1">
+                    <mat-form-field class="d-block mb-2">
+                        <mat-label>Time</mat-label>
+                        <input matInput formControlName="time">
+                        <mat-error class="text-dark" *ngIf="reportIncidentForm.get('time')?.hasError('required')">Please
+                            enter email</mat-error>
+                    </mat-form-field>
+                    <mat-form-field class="d-block mb-2">
+                        <mat-label>Incident Type</mat-label>
+                        <mat-select formControlName="incidentType">
+                            <mat-option *ngFor="let incidentType of incidentTypeOptions"
+                                [value]="incidentType">{{incidentType}}</mat-option>
+                        </mat-select>
+                        <mat-error class="text-light"
+                            *ngIf="reportIncidentForm.get('incidentType')?.hasError('required')">Please select a
+                            role</mat-error>
+                    </mat-form-field>
+                </div>
+                <mat-form-field class="d-block mb-2">
+                    <mat-label>Description</mat-label>
+                    <textarea type="" matInput formControlName="description"></textarea>
+                    <mat-error class="text-dark"
+                        *ngIf="reportIncidentForm.get('description')?.hasError('required')">Please
+                        enter description</mat-error>
+                </mat-form-field>
+                <button class="btn btn-dark w-100 submitButton" (click)="onFormSubmit()">submit</button>
+            </form>
+        </div>
+    </div>
+
+</div>

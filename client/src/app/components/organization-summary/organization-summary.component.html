@@ -1,0 +1,117 @@
+<mat-spinner class="d-block mx-auto mt-5" *ngIf="!getApiReqStatus()"></mat-spinner>
+<div *ngIf="getApiReqStatus()" class="body">
+    <div class="container">
+        <div class="main-body">
+            <div class="row gutters-sm">
+                <div class="col-md-4 mb-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="d-flex flex-column align-items-center text-center">
+                                <img src="../../../assets/images/org-profile-pic.jpg" alt="Admin" class="rounded-circle"
+                                    width="150">
+                                <div class="mt-3">
+                                    <h4>{{orgObj.name}}</h4>
+                                    <p class="text-secondary mb-1">{{orgObj.description}}</p>
+                                    <p class="text-muted font-size-sm">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eum enim autem quas architecto ut illum reiciendis vel illo. Soluta, voluptatibus eum? Possimus laborum vero quos impedit itaque, odit voluptatibus vitae.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-8 h-100">
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <h3 class="text-muted mb-3">Admin Details</h3>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <h6 class="mb-0">Full Name</h6>
+                                </div>
+                                <div class="col-sm-9 text-secondary">
+                                    Kenneth Valdez
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <h6 class="mb-0"> Email</h6>
+                                </div>
+                                <div class="col-sm-9 text-secondary">
+                                    {{orgObj.adminEmail}}
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <h6 class="mb-0">Phone</h6>
+                                </div>
+                                <div class="col-sm-9 text-secondary">
+                                    +91 12345677
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <h6 class="mb-0">Mobile</h6>
+                                </div>
+                                <div class="col-sm-9 text-secondary">
+                                    +91 23456787
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <h6 class="mb-0">Address</h6>
+                                </div>
+                                <div class="col-sm-9 text-secondary">
+                                    Test Address, Street 51, Telangana
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <a class="btn btn-info " routerLink="#">Edit</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1">
+                <div class="col">
+                    <div class="card" style="width: 18rem;">
+                        <div class="card-body">
+                            <h5 class="card-title">Total Organization Subordinates</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">{{orgObj.orgSubOrdinates.length-1}}</h6>
+                            <p class="card-text">Some quick example text to build on the card title and make up
+                                the bulk of the card's content.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col ">
+                    <div class="card" style="width: 18rem;">
+                        <div class="card-body">
+                            <h5 class="card-title">Total Organization Users</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">{{orgObj.orgUsers.length}}</h6>
+                            <p class="card-text">Some quick example text to build on the card title and make up
+                                the bulk of the card's content.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col ">
+                    <div class="card" style="width: 18rem;">
+                        <div class="card-body">
+                            <h5 class="card-title">Total Organization Incidents</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">{{orgObj.incidents.length}}</h6>
+                            <p class="card-text">Some quick example text to build on the card title and make up
+                                the bulk of the card's content.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</div>

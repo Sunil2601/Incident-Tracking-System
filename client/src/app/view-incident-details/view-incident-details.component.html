@@ -1,0 +1,64 @@
+<section class="h-100 gradient-custom-2">
+    <div class="container py-5 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col col-lg-9 col-xl-7">
+                <div class="card">
+                    <div class="rounded-top text-white d-flex flex-row" style="background-color: #000; height:200px;">
+                        <div class="ms-4 mt-5 d-flex flex-column" style="width: 150px;">
+                            <img src="https://images.unsplash.com/photo-1504711331083-9c895941bf81?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                                alt="Generic placeholder image" class="img-fluid img-thumbnail mt-4 mb-2"
+                                style="width: 250px; z-index: 1;object-fit: cover;">
+                            <button (click)="onChangeIncidentStatus()" type="button" class="btn btn-outline-dark mt-5"
+                                data-mdb-ripple-color="dark" style="z-index: 1;">
+                                Update Status
+                            </button>
+                        </div>
+                        <div class="ms-3" style="margin-top: 130px;">
+                            <h5><b class="me-2">ID:</b>{{incident.id}}</h5>
+                            <p>{{incident.status}}</p>
+                        </div>
+                    </div>
+                    <div class="p-4 text-black "  style="background-color: #f8f9fa; margin-top: 60px;">
+                        <div class="d-flex justify-content-between">
+                            <h4>Status</h4>
+                            <h4>{{getStatus()}}</h4>
+                        </div>
+                        <mat-progress-bar mode="determinate" [value]="getValue()" ></mat-progress-bar>
+                    </div>
+                    <div class="card-body p-4 text-black mt-5">
+                        <div class="mb-5">
+                            <p class="lead fw-normal mb-1">Details</p>
+                            <div class="p-4" style="background-color: #f8f9fa;">
+                                <p class="font-italic mb-1"><b class="me-2">User Email:</b>{{incident.userEmail}}</p>
+                                <p class="font-italic mb-1"><b class="me-2">Reported Date:</b>{{incident.date}}</p>
+                                <p class="font-italic mb-1"><b class="me-2">Time:</b>{{incident.time}}</p>
+                                <p class="font-italic mb-0"><b class="me-2">Description :</b>{{incident.description}}</p>
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center mb-4">
+                            <p class="lead fw-normal mb-0">Handled By:</p>
+                        </div>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Subordinate Id</th>
+                                    <th scope="col">Date</th>
+                                    <th scope="col">Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let hanlder of incident.handlers;let i=index">
+                                    <th scope="row">{{i+1}}</th>
+                                    <td scope="row">{{hanlder.subOrdinateId}}</td>
+                                    <td scope="row">{{hanlder.date}}</td>
+                                    <td scope="row">{{hanlder.status}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,16 @@
+<div>
+    <mat-spinner class="spinner mx-auto" *ngIf="!getApiRequestStatus()"></mat-spinner>
+    <div class="row row-cols-lg-3 row-cols-md-3 row-cols-sm-1 p-3 body mt-5">
+        <div class="col" *ngFor="let org of organizatonsData">
+            <div class="card shadow" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">{{org.name}}</h5>
+                    <h6 class="card-subtitle mb-2 text-body-secondary">{{org.description}}</h6>
+                    <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit maiores
+                        fuga rem veritatis similique neque eligendi perferendis cumque repudiandae quaerat.</p>
+                    <button class="btn btn-secondary" (click)="viewMore(org.id)">View More</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
